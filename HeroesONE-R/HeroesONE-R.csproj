@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<LangVersion>12.0</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>HeroesONE-R</PackageId>
+		<Version>1.0.0</Version>
+		<Description>Library for reading and writing Sonic Heroes and Shadow The Hedgehog .ONE archives.</Description>
+		<Authors>Heroes-Hacking-Central</Authors>
+		<Copyright>Copyright © 2018 Heroes-Hacking-Central</Copyright>
+		<PackageIcon>nuget-icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/Heroes-Hacking-Central/HeroesONE-R</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/Heroes-Hacking-Central/HeroesONE-R</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="prs_rs.Net.Sys" Version="2.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\LICENSE.md">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\res\nuget-icon.png">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+</Project>
