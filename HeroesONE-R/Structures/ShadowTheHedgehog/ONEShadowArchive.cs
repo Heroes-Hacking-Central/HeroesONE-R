@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 using HeroesONE_R.Structures.Common;
 using HeroesONE_R.Structures.SonicHeroes.ONE_Substructures;
@@ -122,6 +123,11 @@ namespace HeroesONE_R.Structures.ShadowTheHedgehog
             */
             int headerSize = Marshal.SizeOf<ONEHeader>();
             int trueFileSize = file.Length - headerSize;
+            
+            if (trueFileSize < oneShadowArchive.FileHeader.FileSize)
+            {
+                throw new InvalidDataException("Archive is corrupted. Report this if encountered");
+            }
 
             for (int x = 0; x < oneShadowArchive.Files.Count; x++)
             {
