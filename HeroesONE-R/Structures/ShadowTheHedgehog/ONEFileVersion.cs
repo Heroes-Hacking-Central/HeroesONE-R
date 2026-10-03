@@ -21,7 +21,7 @@ namespace HeroesONE_R.Structures.ShadowTheHedgehog
         {
             fixed (byte* fileNamePointer = OneVersion)
             {
-                StringUtilities.StringToCharPointer(text, fileNamePointer);
+                StringUtilities.StringToCharPointer(text, fileNamePointer, 16);
             }
         }
 

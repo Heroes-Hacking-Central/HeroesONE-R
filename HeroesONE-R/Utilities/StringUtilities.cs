@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace HeroesONE_R.Utilities
 {
@@ -28,10 +29,16 @@ namespace HeroesONE_R.Utilities
         /// </summary>
         /// <param name="text">The text to write to the pointer.</param>
         /// <param name="pointer">The pointer to write to.</param>
-        public static void StringToCharPointer(string text, byte* pointer)
+        /// <param name="bufferLength">Size in bytes of the buffer behind the pointer (and null terminator).</param>
+        /// <exception cref="ArgumentException">The text does not fit in the buffer.</exception>
+        public static void StringToCharPointer(string text, byte* pointer, int bufferLength)
         {
             // Get the name as ASCII bytes.
             byte[] asciiText = Encoding.ASCII.GetBytes(text);
+
+            if (asciiText.Length >= bufferLength) {
+                throw new ArgumentException($"\"{text}\" too long. Max size is {bufferLength - 1} characters.", nameof(text));
+            }
 
             // Copy them over to structure.
             for (int x = 0; x < asciiText.Length; x++)

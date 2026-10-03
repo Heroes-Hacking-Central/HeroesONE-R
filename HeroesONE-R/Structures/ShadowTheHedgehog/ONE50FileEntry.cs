@@ -43,7 +43,7 @@ namespace HeroesONE_R.Structures.ShadowTheHedgehog
         {
             fixed (byte* fileNamePointer = FileName)
             {
-                StringUtilities.StringToCharPointer(name, fileNamePointer);
+                StringUtilities.StringToCharPointer(name, fileNamePointer, 32);
             }
 
             FileSize = 0;

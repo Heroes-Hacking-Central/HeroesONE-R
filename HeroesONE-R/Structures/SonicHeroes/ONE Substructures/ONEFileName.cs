@@ -25,7 +25,7 @@ namespace HeroesONE_R.Structures.SonicHeroes.ONE_Substructures
         {
             fixed (byte* fileNamePointer = Name)
             {
-                StringUtilities.StringToCharPointer(name, fileNamePointer);
+                StringUtilities.StringToCharPointer(name, fileNamePointer, FileNameLength);
             }
         }
 
