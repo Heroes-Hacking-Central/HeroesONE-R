@@ -37,7 +37,7 @@ namespace HeroesONE_R.Utilities
             byte[] asciiText = Encoding.ASCII.GetBytes(text);
 
             if (asciiText.Length >= bufferLength) {
-                throw new ArgumentException($"\"{text}\" too long. Max size is {bufferLength - 1} characters.", nameof(text));
+                throw new ArgumentException($"\"{text}\" too long. Max size is {bufferLength - 1} characters.");
             }
 
             // Copy them over to structure.

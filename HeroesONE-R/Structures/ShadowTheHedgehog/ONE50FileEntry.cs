@@ -5,9 +5,14 @@ namespace HeroesONE_R.Structures.ShadowTheHedgehog
     public unsafe struct ONE50FileEntry : IFileEntry
     {
         /// <summary>
+        /// Size in bytes of the file name field, including the null terminator.
+        /// </summary>
+        public const int FileNameLength = 32;
+
+        /// <summary>
         /// Stores the name of the individual file. Ends with a null terminator.
         /// </summary>
-        public fixed byte FileName[32];
+        public fixed byte FileName[FileNameLength];
 
         /// <summary>
         /// Contains the size of the file in question (uncompressed!)
@@ -43,7 +48,7 @@ namespace HeroesONE_R.Structures.ShadowTheHedgehog
         {
             fixed (byte* fileNamePointer = FileName)
             {
-                StringUtilities.StringToCharPointer(name, fileNamePointer, 32);
+                StringUtilities.StringToCharPointer(name, fileNamePointer, FileNameLength);
             }
 
             FileSize = 0;
