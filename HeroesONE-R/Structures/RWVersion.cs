@@ -1,4 +1,6 @@
-﻿namespace HeroesONE_R.Structures
+﻿using System;
+
+namespace HeroesONE_R.Structures
 {
     public struct RWVersion
     {
@@ -88,6 +90,11 @@
         /// <returns></returns>
         public void SetVersion(uint version)
         {
+            if (version < 3 || version > 6)
+            {
+                throw new ArgumentOutOfRangeException(nameof(version), version, "'RW version' allowed range is 3-6");
+            }
+
             // VVJJ JJNN NNBB BBBB DDDD DDDD DDDD DDDD
             // 0011 1111 1111 1111 1111 1111 1111 1111
             // Remove the current version.
@@ -108,6 +115,11 @@
         /// <returns></returns>
         public void SetMajor(uint major)
         {
+            if (major > 15)
+            {
+                throw new ArgumentOutOfRangeException(nameof(major), major, "'Major' allowed range is 0-15");
+            }
+
             // J is Major build
             // VVJJ JJNN NNBB BBBB DDDD DDDD DDDD DDDD
             // 1100 0011 1111 1111 1111 1111 1111 1111
@@ -127,6 +139,11 @@
         /// <returns></returns>
         public void SetMinor(uint minor)
         {
+            if (minor > 15)
+            {
+                throw new ArgumentOutOfRangeException(nameof(minor), minor, "'Minor' allowed range is 0-15");
+            }
+
             // N is Minor build
             // VVJJ JJNN NNBB BBBB DDDD DDDD DDDD DDDD
             // 1111 1100 0011 1111 1111 1111 1111 1111
@@ -146,6 +163,11 @@
         /// <returns></returns>
         public void SetRevision(uint revision)
         {
+            if (revision > 63)
+            {
+                throw new ArgumentOutOfRangeException(nameof(revision), revision, "'Binary revision' allowed range is 0-63");
+            }
+
             // B is Revision
             // VVJJ JJNN NNBB BBBB DDDD DDDD DDDD DDDD
             // 1111 1111 1100 0000 1111 1111 1111 1111
